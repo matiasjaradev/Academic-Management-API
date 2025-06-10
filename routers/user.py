@@ -7,6 +7,8 @@ from database import model
 from schemas import scheme
 from security.auth import create_access_token
 from database.connection import get_db
+from sqlalchemy import func
+
 
 router = APIRouter(
     prefix="",
@@ -24,6 +26,7 @@ def verify_password(plain_password, hashed_password):
 @router.post("/register", response_model=scheme.User)
 def register(user_create: scheme.UserCreate, db: Session = Depends(get_db)):
     user = db.query(model.User).filter(model.User.username == user_create.username).first()
+   
     if user:
         raise HTTPException(status_code=400, detail="El usuario ya existe")
 
