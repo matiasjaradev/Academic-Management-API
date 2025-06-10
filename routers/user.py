@@ -23,28 +23,28 @@ def get_password_hash(password: str):
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
 
-# @router.post("/register", response_model=scheme.User)
-# def register(user_create: scheme.UserCreate, db: Session = Depends(get_db)):
-#     user = db.query(model.User).filter(model.User.username == user_create.username).first()
+@router.post("/register", response_model=scheme.User)
+def register(user_create: scheme.UserCreate, db: Session = Depends(get_db)):
+    user = db.query(model.User).filter(model.User.username == user_create.username).first()
    
-#     if user:
-#         raise HTTPException(status_code=400, detail="El usuario ya existe")
+    if user:
+        raise HTTPException(status_code=400, detail="El usuario ya existe")
 
-#     role = db.query(model.Role).filter(model.Role.name == "user").first()
-#     if not role:
-#         raise HTTPException(status_code=400, detail="Rol 'user' no encontrado")
+    role = db.query(model.Role).filter(model.Role.name == "user").first()
+    if not role:
+        raise HTTPException(status_code=400, detail="Rol 'user' no encontrado")
 
-#     new_user = model.User(
-#         username=user_create.username,
-#         hashed_password=get_password_hash(user_create.password),
-#         role_id=1
-#     )
+    new_user = model.User(
+        username=user_create.username,
+        hashed_password=get_password_hash(user_create.password),
+        role_id=2
+    )
 
-#     db.add(new_user)
-#     db.commit()
-#     db.refresh(new_user)
+    db.add(new_user)
+    db.commit()
+    db.refresh(new_user)
 
-#     return new_user
+    return new_user
 
 @router.post("/login", response_model=scheme.Token)
 def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
