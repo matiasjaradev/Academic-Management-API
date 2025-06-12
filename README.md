@@ -9,7 +9,7 @@
 **Puedes visitar el APi en el siguiente enlace: [LINK](https://backend.matiasjara.dev)**
 
 ## 🌐 Despliegue
-La API actualmente está desplegada en:  [LINK](https://backend.matiasjara.dev)**
+La API actualmente está desplegada en:  [LINK](https://backend.matiasjara.dev)
 
 ## 🔧 Características principales
 - Gestión de entidades académicas básicas
