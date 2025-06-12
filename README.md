@@ -134,6 +134,8 @@ Accede a la documentación automática:
 ## Licencia
 Copyright © 2025 Matías Jara
 Distribuido bajo la licencia MIT. Consulte el archivo [LICENSE](LICENSE) para obtener más información.
+
+
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## ✉️ Contacto
